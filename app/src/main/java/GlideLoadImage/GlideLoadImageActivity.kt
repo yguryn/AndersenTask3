@@ -25,9 +25,11 @@ class GlideLoadImageActivity : AppCompatActivity() {
         loadButton = findViewById(R.id.GlideButton)
     }
 
+    
     fun setImage(view: View) {
         val options: RequestOptions = RequestOptions()
-                .centerCrop()
+            .error(R.drawable.something_went_wrong)
+            .centerCrop()
         Glide.with(this).load(linkET.text.toString()).apply(options).into(loadIV)
     }
 }

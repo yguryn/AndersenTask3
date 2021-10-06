@@ -5,11 +5,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.andersentask3.R
 import com.squareup.picasso.Picasso
 
 class PicassoLoadImageActivity : AppCompatActivity() {
+
     private lateinit var linkET: EditText
     private lateinit var loadIV: ImageView
     private lateinit var loadButton: Button
@@ -22,9 +24,13 @@ class PicassoLoadImageActivity : AppCompatActivity() {
         loadButton = findViewById(R.id.PicassoButton)
     }
 
+
     fun setImage(view: View) {
-        Picasso.with(this)
-            .load(linkET.text.toString())
-            .into(loadIV);
+        if (linkET.text.isNotEmpty()) {
+            Picasso.with(this)
+                .load(linkET.text.toString())
+                .error(R.drawable.something_went_wrong)
+                .into(loadIV)
+        } else Toast.makeText(this, "Enter link", Toast.LENGTH_SHORT).show()
     }
 }
