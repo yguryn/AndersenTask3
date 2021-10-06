@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndersenTask3</string>
+    <string name="enter_link">Enter a link to the picture</string>
+    <string name="load">Load</string>
+</resources>
